@@ -1,4 +1,3 @@
-
 package com.example.badcalc;
 
 import java.io.FileWriter;
@@ -14,7 +13,7 @@ import java.util.logging.Logger;
 
 public class Main {
     // Logger privado para reemplazar System.out.println
-    // RAZÓN: System.out.println es inseguro en producción (no se puede redirectar, no tiene niveles de log)
+    // RAZÓN: System.out.println es inseguro en producción (no se puede redirectir, no tiene niveles de log)
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
     // CAMBIO: 'history' es ahora private para encapsulación (prácticas de seguridad)
