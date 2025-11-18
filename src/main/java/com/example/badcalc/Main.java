@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.logging.Logger;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 // Eliminada: import java.util.Locale - no se usa en el código
 
 
@@ -36,10 +36,10 @@ public class Main {
     // RAZÓN: Nombres de variable con una letra son confusos; mejor usar nombres descriptivos
     private static final Random random = new Random();
 
-    // CAMBIO: 'API_KEY' renombrado a 'apiKey' (sigue convención camelCase para variables)
+    // CAMBIO: Constante en UPPER_SNAKE_CASE (sigue convención de constantes Java)
     // CAMBIO: Ahora es private y final
     // RAZÓN: Constantes de configuración no deben ser públicas; mejor usar métodos de acceso
-    private static final String apiKey = "NOT_SECRET_KEY";
+    private static final String API_KEY = "NOT_SECRET_KEY";
 
     // MÉTODOS ACCESORES para permitir acceso seguro a los campos privados
     /**
@@ -68,10 +68,10 @@ public class Main {
 
     /**
      * Retorna la clave API de configuración
-     * @return String con la apiKey
+     * @return String con la API_KEY
      */
     public static String getApiKey() {
-        return apiKey;
+        return API_KEY;
     }
 
     public static double parse(String s) {
@@ -221,7 +221,7 @@ public class Main {
         String sys = "System: You are an assistant.";
         String prompt = buildPrompt(sys, tpl, uin);
         String resp = sendToLLM(prompt);
-        LOGGER.log(Level.INFO, "LLM RESP: " + resp);
+        LOGGER.log(Level.INFO, "LLM RESP: {0}", resp);
     }
 
     /**
@@ -279,7 +279,7 @@ public class Main {
 
         saveCalculationResult(a, b, op, res);
 
-        LOGGER.log(Level.INFO, "= " + res);
+        LOGGER.log(Level.INFO, "= {0}", res);
         counter++;
 
         try {
